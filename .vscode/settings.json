@@ -10,7 +10,8 @@
     "**/**/node_modules": true,
     "**/yarn.lock": true,
     "**/.gitignore": true,
-    "**/LICENSE": true
+    "**/LICENSE": true,
+    "**/*.log": true
   },
   "vetur.validation.script": false,
   "editor.formatOnSave": true,
