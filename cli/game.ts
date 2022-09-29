@@ -1,3 +1,3 @@
-export default function useGame(){
-  return "gam44444444e"
+export default function useGame(str: string) {
+  return "123" + str;
 }

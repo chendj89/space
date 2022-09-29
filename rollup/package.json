@@ -13,6 +13,6 @@
     "typescript": "^4.8.4"
   },
   "scripts": {
-    "run": "rimraf ../playground/cli/ && rollup -c "
+    "run": "rimraf ../playground/cli/ && rollup -c && npm run test"
   }
 }

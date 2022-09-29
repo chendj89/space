@@ -7,6 +7,12 @@
   "workspaces": [
     "cli",
     "rollup",
-    "playground"
-  ]
+    "playground",
+    "test"
+  ],
+  "repository": "https://github.com/chendj89/space.git",
+  "author": "chendj89 <chendj89@hotmail.com>",
+  "volta": {
+    "node": "16.17.0"
+  }
 }
