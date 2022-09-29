@@ -13,6 +13,6 @@
     "typescript": "^4.8.4"
   },
   "scripts": {
-    "run": "rimraf ../playground/cli/ && rimraf ../test/cli && rollup -c && yarn workspace test run test "
+    "run": "rimraf ../playground/cli/ && rollup -c && yarn workspace test run test "
   }
 }
