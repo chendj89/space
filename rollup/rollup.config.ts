@@ -39,13 +39,17 @@ function buildCommand({ input, dest }) {
   return list;
 }
 
-const game = buildCommand({
-  input: "../cli/game.ts",
-  dest: "../playground/cli/game",
-});
-const index = buildCommand({
-  input: "../cli/index.ts",
-  dest: "../playground/cli/index",
+// const game = buildCommand({
+//   input: "../cli/game.ts",
+//   dest: "../playground/cli/game",
+// });
+// const index = buildCommand({
+//   input: "../cli/index.ts",
+//   dest: "../playground/cli/index",
+// });
+const git = buildCommand({
+  input: "../cli/gitdownload.ts",
+  dest: "../playground/cli/gitdownload",
 });
 
-export default [...game, ...index];
+export default [...git];
