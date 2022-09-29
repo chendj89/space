@@ -47,9 +47,13 @@ function buildCommand({ input, dest }) {
 //   input: "../cli/index.ts",
 //   dest: "../playground/cli/index",
 // });
-const git = buildCommand({
-  input: "../cli/gitdownload.ts",
-  dest: "../playground/cli/gitdownload",
+// const git = buildCommand({
+//   input: "../cli/gitdownload.ts",
+//   dest: "../playground/cli/gitdownload",
+// });
+const toNum = buildCommand({
+  input: "../cli/toNum.ts",
+  dest: "../playground/cli/toNum",
 });
 
-export default [...git];
+export default [...toNum];
