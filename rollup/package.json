@@ -13,7 +13,7 @@
     "typescript": "^4.8.4"
   },
   "scripts": {
-    "run": "rollup -c && yarn workspace test run test && npm run clean",
+    "run": "rollup -c && yarn workspace test run vitest && npm run clean",
     "clean": "rimraf ../playground/cli/ && rimraf ../test/cli"
   }
 }

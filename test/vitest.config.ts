@@ -1,7 +1,8 @@
 /// <reference types="vitest" />
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 export default defineConfig({
   test: {
-    include: ["./cli_gitdownload.test.ts"],
+    // 排除测试
+    exclude: ["./cli_gitdownload.test.ts"],
   },
 });
