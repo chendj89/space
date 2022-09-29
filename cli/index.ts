@@ -1,4 +1,3 @@
-import * as path from "path";
-export function toRaw() {
-  return "raw：" + path.join(__dirname, "");
+export default function toRaw(value: string | number) {
+  return value;
 }

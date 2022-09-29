@@ -5,7 +5,7 @@ import dts from "rollup-plugin-dts";
 //@ts-ignore
 function buildCommand({ input, dest }) {
   let list = [];
-  let outputs = ["es", "amd", "cjs"].map((format) => {
+  let outputs = ["es", "cjs"].map((format) => {
     let ext = {
       es: "mjs",
       cjs: "js",
