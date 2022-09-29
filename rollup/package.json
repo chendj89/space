@@ -1,0 +1,18 @@
+{
+  "name": "rollup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^18.7.23",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.79.1",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-typescript2": "^0.34.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.4"
+  },
+  "scripts": {
+    "run": "rimraf ../playground/cli/ && rollup -c "
+  }
+}
