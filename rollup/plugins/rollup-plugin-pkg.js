@@ -8,9 +8,19 @@ import basePkg from "../pkg/base.json";
  * @returns
  */
 export default function pkg({ input, dest }) {
+  let configPlugin;
   return {
-    name: "pkg",
+    name: "rollupPluginPkg",
+    buildStart(opts) {
+      configPlugin = opts.plugins.find((plugin) => {
+        return plugin.name === "rollupPluginConfig";
+      });
+    },
     buildEnd() {
+      if (!configPlugin) {
+        return;
+      }
+      let config = configPlugin.api.getConfig();
       // 来源目录
       let src = path.dirname(path.join(__dirname, `${input}`));
       // 来源目录中的package.json
@@ -28,9 +38,9 @@ export default function pkg({ input, dest }) {
         let num = parseInt(arr.pop()) + 1;
         arr.push(num);
         basePkg.version = arr.join(".");
-        basePkg.name = `@chencc/${name}`;
+        basePkg.name = `@${config.npm}/${name}`;
         basePkg.dependencies = dependencies;
-        basePkg.repository.url = `https://github.com/chendj89/${name}.git`;
+        basePkg.repository.url = `https://github.com/${config.github}/${name}.git`;
         basePkg.scripts.push = "npm publish";
         let dir = path.join(__dirname, `${dest}/package.json`);
         fs.writeFileSync(dir, JSON.stringify(basePkg, null, 2), "utf-8");

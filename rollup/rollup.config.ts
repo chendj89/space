@@ -3,6 +3,8 @@ import tsc from "rollup-plugin-typescript2";
 import dts from "rollup-plugin-dts";
 // @ts-ignore
 import pkg from "./plugins/rollup-plugin-pkg";
+// @ts-ignore
+import config from "./plugins/rollup-plugin-config";
 
 //@ts-ignore
 function buildCommand({ input, dest }) {
@@ -26,7 +28,11 @@ function buildCommand({ input, dest }) {
   list.push({
     input: input,
     output: outputs,
-    plugins: [tsc(), pkg({ input, dest })],
+    plugins: [
+      config({ npm: "chencc", github: "chendj89" }),
+      pkg({ input, dest }),
+      tsc(),
+    ],
   });
   // dts
   list.push({
