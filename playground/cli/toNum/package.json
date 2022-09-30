@@ -1,6 +1,6 @@
 {
   "name": "@chencc/cli",
-  "version": "1.0.11",
+  "version": "1.0.1",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -12,7 +12,9 @@
       "require": "./dist/index.js"
     }
   },
-  "scripts": {},
+  "scripts": {
+    "push": "npm publish"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

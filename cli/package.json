@@ -1,15 +1,13 @@
 {
   "name": "cli",
-  "version": "1.0.10",
+  "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "@types/shelljs": "^0.8.11",
     "shelljs": "^0.8.5"
   },
-  "scripts": {
-    "ver": "node -v"
-  },
+  "scripts": {},
   "volta": {
     "node": "16.17.0"
   }

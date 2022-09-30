@@ -15,7 +15,7 @@ export default function pkg({ input, dest }) {
       basePkg.name = `@chencc/${name}`;
       basePkg.dependencies = dependencies;
       basePkg.repository.url = `https://github.com/chendj89/${name}.git`;
-
+      basePkg.scripts.push = "npm publish";
       fs.writeFileSync(dir, JSON.stringify(basePkg, null, 2), "utf-8");
     },
   };
