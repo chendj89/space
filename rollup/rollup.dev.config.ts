@@ -56,27 +56,23 @@ function buildCommand({
     ],
   });
 
-  if (model === "production") {
-    // dts
-    list.push({
-      input: input,
-      output: {
-        file: `${fileName}.d.ts`,
-        format: "es",
-        exports: "auto",
-      },
-      plugins: [dts()],
-    });
-  }
+  // dts
+  list.push({
+    input: input,
+    output: {
+      file: `${fileName}.d.ts`,
+      format: "es",
+      exports: "auto",
+    },
+    plugins: [dts()],
+  });
 
   return list;
 }
 
 const rollupPlugin = buildCommand({
   input: "../packages/rollupPlugin/index.ts",
-  dest: "../rollup/plugins",
-  model: "development",
-  formats: ["es"],
+  dest: "../rollup/plugins/configPkg",
 });
 
 export default [...rollupPlugin];
