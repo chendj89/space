@@ -1,0 +1,11 @@
+{
+  "name": "vitepress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "unplugin-icons": "^0.14.11",
+    "vitepress": "^1.0.0-alpha.17",
+    "vue": "^3.2.40"
+  }
+}

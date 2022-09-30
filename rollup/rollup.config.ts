@@ -1,7 +1,8 @@
 // import { defineConfig } from "rollup";
 import tsc from "rollup-plugin-typescript2";
 import dts from "rollup-plugin-dts";
-import { pkg, config } from "./plugins/configPkg";
+// @ts-ignore
+import { pkg, config } from "./plugins/configPkg/dist/index.mjs";
 function buildCommand({
   //@ts-ignore
   input,
@@ -54,11 +55,16 @@ function buildCommand({
   return list;
 }
 
-const gitdownload = buildCommand({
-  input: "../packages/gitdownload/index.ts",
-  dest: "../playground/gitdownload",
-  // @ts-ignore
-  external: ["shelljs"],
+// const gitdownload = buildCommand({
+//   input: "../packages/gitdownload/index.ts",
+//   dest: "../playground/gitdownload",
+//   // @ts-ignore
+//   external: ["shelljs"],
+// });
+
+const md = buildCommand({
+  input: "../packages/md/index.ts",
+  dest: "../playground/md",
 });
 
-export default [...gitdownload];
+export default [...md];
