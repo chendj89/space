@@ -1,6 +1,8 @@
 // import { defineConfig } from "rollup";
 import tsc from "rollup-plugin-typescript2";
 import dts from "rollup-plugin-dts";
+// @ts-ignore
+import pkg from "./plugins/rollup-plugin-pkg";
 
 //@ts-ignore
 function buildCommand({ input, dest }) {
@@ -24,7 +26,7 @@ function buildCommand({ input, dest }) {
   list.push({
     input: input,
     output: outputs,
-    plugins: [tsc()],
+    plugins: [tsc(), pkg({ input, dest })],
   });
   // dts
   list.push({

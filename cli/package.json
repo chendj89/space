@@ -6,5 +6,11 @@
   "dependencies": {
     "@types/shelljs": "^0.8.11",
     "shelljs": "^0.8.5"
+  },
+  "scripts": {
+    "ver": "node -v"
+  },
+  "volta": {
+    "node": "16.17.0"
   }
 }
