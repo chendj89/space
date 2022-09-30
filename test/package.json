@@ -4,9 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "rimraf": "^3.0.2",
     "vitest": "^0.23.4"
   },
   "scripts": {
-    "vitest": "vitest --config ./vitest.config.ts run"
+    "clean": "rimraf cli",
+    "vitest": "npm run clean && vitest --config ./vitest.config.ts run && npm run clean"
   }
 }

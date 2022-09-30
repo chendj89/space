@@ -1,5 +1,5 @@
 import path from "path";
-import fs from "fs";
+import fs from "fs-extra";
 import basePkg from "../pkg/base.json";
 /**
  * 打包
@@ -9,11 +9,12 @@ import basePkg from "../pkg/base.json";
 export default function pkg({ input, dest }) {
   return {
     name: "pkg",
-    buildEnd(error) {
+    buildEnd() {
       // 来源目录
       let src = path.dirname(path.join(__dirname, `${input}`));
       // 来源目录中的package.json
-      let pkg = fs.readFileSync(path.join(src, "package.json"));
+      let pkg = path.join(src, "package.json");
+
       // 判断是否存在
       if (fs.existsSync(pkg)) {
         let pkgJson = fs.readFileSync(pkg, "utf-8");
@@ -28,6 +29,8 @@ export default function pkg({ input, dest }) {
         basePkg.dependencies = dependencies;
         basePkg.repository.url = `https://github.com/chendj89/${name}.git`;
         basePkg.scripts.push = "npm publish";
+        // 确保目标目录存在
+        fs.ensureDirSync(path.join(__dirname, dest));
         let dir = path.join(__dirname, `${dest}/package.json`);
         fs.writeFileSync(dir, JSON.stringify(basePkg, null, 2), "utf-8");
       }

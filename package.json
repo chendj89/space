@@ -8,7 +8,8 @@
     "cli",
     "rollup",
     "playground",
-    "test"
+    "test",
+    "packages/*"
   ],
   "repository": "https://github.com/chendj89/space.git",
   "author": "chendj89 <chendj89@hotmail.com>",

@@ -1,14 +1,13 @@
 {
-  "name": "cli",
+  "name": "gitdownload",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "volta": {
+    "node": "16.17.0"
+  },
   "dependencies": {
     "@types/shelljs": "^0.8.11",
     "shelljs": "^0.8.5"
-  },
-  "scripts": {},
-  "volta": {
-    "node": "16.17.0"
   }
 }
