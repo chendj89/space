@@ -2,5 +2,5 @@ node_modules
 playground
 *-lock.json
 *.lock
-!rollup/plugins/configPkg/dist
 dist
+!rollup/plugins/configPkg/dist
