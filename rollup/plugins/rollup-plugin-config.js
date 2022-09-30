@@ -1,15 +1,11 @@
-export default function config({ npm = "", github = "" }) {
+export default function config(opts) {
   return {
     name: "rollupPluginConfig",
     api: {
       // 返回插件数据
       getConfig() {
-        return { npm, github };
+        return opts;
       },
-    },
-    options: (inputOptions) => {
-      // console.log(inputOptions);
-      return inputOptions;
     },
   };
 }

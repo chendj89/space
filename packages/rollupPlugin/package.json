@@ -1,0 +1,11 @@
+{
+  "name": "rollupPlugin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "fs-extra": "^10.1.0",
+    "rollup": "^2.79.1"
+  }
+}

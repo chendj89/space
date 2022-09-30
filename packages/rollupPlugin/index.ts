@@ -1,5 +1,42 @@
+import { Plugin } from "rollup";
 import path from "path";
 import fs from "fs-extra";
+interface userOptions {
+  /**
+   * npm账号名
+   */
+  npm: string;
+  /**
+   * github账号名
+   */
+  github: string;
+  /**
+   * 默认package.json
+   */
+  pkg: string | object;
+  [props: string]: any;
+}
+interface pkgOptions {
+  /**
+   * 来源
+   */
+  input: string;
+  /**
+   * 存放目录
+   */
+  dest: string;
+}
+export function config(opts: userOptions): Plugin {
+  return {
+    name: "rollupPluginConfig",
+    api: {
+      // 返回插件数据
+      getConfig() {
+        return opts;
+      },
+    },
+  };
+}
 
 /**
  * 打包
@@ -7,8 +44,8 @@ import fs from "fs-extra";
  * @param {*} param.dest 存放目录
  * @returns
  */
-export default function pkg({ input, dest }) {
-  let configPlugin;
+export function pkg({ input, dest }: pkgOptions): Plugin {
+  let configPlugin: Plugin | undefined;
   return {
     name: "rollupPluginPkg",
     buildStart(opts) {
@@ -23,7 +60,7 @@ export default function pkg({ input, dest }) {
       let config = configPlugin.api.getConfig();
       // import basePkg from "../pkg/base.json";
       // 提供
-      let basePkg = {};
+      let basePkg: any = {};
       if (config.pkg) {
         if (typeof config.pkg === "string") {
           // 读取文件
@@ -43,7 +80,7 @@ export default function pkg({ input, dest }) {
       fs.ensureDirSync(path.join(__dirname, dest));
       // 判断是否存在
       if (fs.existsSync(pkg)) {
-        let pkgJson = fs.readFileSync(pkg, "utf-8");
+        let pkgJson: any = fs.readFileSync(pkg, "utf-8");
         pkgJson = JSON.parse(pkgJson);
         const { dependencies, name, version } = pkgJson;
         // 版本+1

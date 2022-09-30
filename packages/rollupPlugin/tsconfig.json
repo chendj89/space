@@ -1,0 +1,4 @@
+{
+  "extends": "../../rollup/tsconfig.json",
+  "exclude": ["node_modules"]
+}
