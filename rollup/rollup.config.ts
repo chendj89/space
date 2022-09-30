@@ -4,8 +4,16 @@ import dts from "rollup-plugin-dts";
 // @ts-ignore
 import { pkg, config } from "./plugins/configPkg/dist/index.mjs";
 
-//@ts-ignore
-function buildCommand({ input, dest, formats = ["es", "cjs"] }) {
+function buildCommand({
+  //@ts-ignore
+  input,
+  //@ts-ignore
+  dest,
+  //@ts-ignore
+  formats = ["es", "cjs"],
+  //@ts-ignore
+  external = [],
+}) {
   let list = [];
   let outputs = formats.map((format) => {
     let ext = {
@@ -31,6 +39,7 @@ function buildCommand({ input, dest, formats = ["es", "cjs"] }) {
       pkg({ input, dest }),
       tsc(),
     ],
+    external,
   });
 
   // dts
@@ -50,6 +59,8 @@ function buildCommand({ input, dest, formats = ["es", "cjs"] }) {
 const gitdownload = buildCommand({
   input: "../packages/gitdownload/index.ts",
   dest: "../playground/gitdownload",
+  // @ts-ignore
+  external: ["shelljs"],
 });
 
 export default [...gitdownload];
