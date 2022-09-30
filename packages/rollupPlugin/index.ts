@@ -26,6 +26,14 @@ interface pkgOptions {
    */
   dest: string;
 }
+
+/**
+ * 配置
+ * @param {*} opts
+ * @param {string} opts.input 来源
+ * @param {string} opts.dest 存放目录
+ * @returns
+ */
 export function config(opts: userOptions): Plugin {
   return {
     name: "rollupPluginConfig",

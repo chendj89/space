@@ -4,6 +4,13 @@
 import path from 'path';
 import fs from 'fs-extra';
 
+/**
+ * 配置
+ * @param {*} opts
+ * @param {string} opts.input 来源
+ * @param {string} opts.dest 存放目录
+ * @returns
+ */
 function config(opts) {
     return {
         name: "rollupPluginConfig",
