@@ -37,7 +37,7 @@ function buildCommand({ input, dest, formats = ["es", "cjs"] }) {
   list.push({
     input: input,
     output: {
-      file: `${dest}/index.d.ts`,
+      file: `${dest}/dist/index.d.ts`,
       format: "es",
       exports: "auto",
     },

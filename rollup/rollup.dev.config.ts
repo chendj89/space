@@ -1,5 +1,4 @@
 // import { defineConfig } from "rollup";
-import path from "path";
 import tsc from "rollup-plugin-typescript2";
 import dts from "rollup-plugin-dts";
 // @ts-ignore
@@ -8,27 +7,7 @@ import pkg from "./plugins/rollup-plugin-pkg";
 import config from "./plugins/rollup-plugin-config";
 
 //@ts-ignore
-function buildCommand({
-  //@ts-ignore
-  input,
-  //@ts-ignore
-  dest,
-  //@ts-ignore
-  model = "production",
-  //@ts-ignore
-  formats = ["es", "cjs"],
-}) {
-  // 完整路径
-  let src = path.dirname(path.join(__dirname, input));
-  // 源文件所在目录名称
-  let srcDirName = path.basename(src);
-  let fileName = "";
-  // 开发版本
-  if (model === "development") {
-    fileName = `${dest}/${srcDirName}`;
-  } else {
-    fileName = `${dest}/dist/index`;
-  }
+function buildCommand({ input, dest, formats = ["es", "cjs"] }) {
   let list = [];
   let outputs = formats.map((format) => {
     let ext = {
@@ -39,7 +18,7 @@ function buildCommand({
     //@ts-ignore
     let extname = ext[format];
     return {
-      file: `${fileName}.${extname}`,
+      file: `${dest}/dist/index.${extname}`,
       format: format,
       exports: format === "cjs" ? "auto" : undefined,
       banner: `/*\n* 格式:${format}\n*/`,
@@ -51,7 +30,7 @@ function buildCommand({
     output: outputs,
     plugins: [
       config({ npm: "chencc", github: "chendj89", pkg: "./pkg/base.json" }),
-      model === "production" ? pkg({ input, dest }) : null,
+      pkg({ input, dest }),
       tsc(),
     ],
   });
@@ -60,7 +39,7 @@ function buildCommand({
   list.push({
     input: input,
     output: {
-      file: `${fileName}.d.ts`,
+      file: `${dest}/dist/index.d.ts`,
       format: "es",
       exports: "auto",
     },
