@@ -3,7 +3,8 @@ import fs from "fs-extra";
 import basePkg from "../pkg/base.json";
 /**
  * 打包
- * @param {*} param
+ * @param {*} param.input 来源
+ * @param {*} param.dest 存放目录
  * @returns
  */
 export default function pkg({ input, dest }) {
