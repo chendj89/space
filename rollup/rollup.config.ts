@@ -1,8 +1,17 @@
 // import { defineConfig } from "rollup";
 import tsc from "rollup-plugin-typescript2";
 import dts from "rollup-plugin-dts";
-// @ts-ignore
-import { pkg, config } from "./plugins/configPkg/dist/index.mjs";
+import { pkg, config } from "./plugins/configPkg";
+
+// let a = {
+//   exports: {
+//     ".": {
+//       import: "./dist/index.mjs",
+//       require: "./dist/index.js",
+//       types: "./dist/index.d.ts",
+//     },
+//   },
+// };
 
 function buildCommand({
   //@ts-ignore
