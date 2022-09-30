@@ -3,7 +3,9 @@ import path from "path";
 import tsc from "rollup-plugin-typescript2";
 import dts from "rollup-plugin-dts";
 // @ts-ignore
-import { pkg, config } from "./plugins/rollupPlugin.mjs";
+import pkg from "./plugins/rollup-plugin-pkg";
+// @ts-ignore
+import config from "./plugins/rollup-plugin-config";
 
 //@ts-ignore
 function buildCommand({
@@ -70,15 +72,11 @@ function buildCommand({
   return list;
 }
 
-const gitdownload = buildCommand({
-  input: "../packages/gitdownload/index.ts",
-  dest: "../playground/gitdownload",
+const rollupPlugin = buildCommand({
+  input: "../packages/rollupPlugin/index.ts",
+  dest: "../rollup/plugins",
+  model: "development",
+  formats: ["es"],
 });
-// const rollupPlugin = buildCommand({
-//   input: "../packages/rollupPlugin/index.ts",
-//   dest: "../rollup/plugins",
-//   model: "development",
-//   formats: ["cjs"],
-// });
 
-export default [...gitdownload];
+export default [...rollupPlugin];
