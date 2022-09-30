@@ -17,5 +17,8 @@
     "run": "rollup -c && yarn workspace test run vitest",
     "clean": "rimraf ../playground/cli/ && rimraf ../test/cli",
     "dev": "rollup -c ./rollup.dev.config.ts"
+  },
+  "volta": {
+    "node": "16.17.0"
   }
 }
