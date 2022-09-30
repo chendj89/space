@@ -6,7 +6,7 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
-    "**/**/node_modules2": true,
+    "**/**/node_modules": true,
     "**/yarn.lock": true,
     "**/.gitignore": false,
     "**/LICENSE": true,
