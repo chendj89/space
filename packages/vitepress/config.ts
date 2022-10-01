@@ -1,6 +1,14 @@
 import { defineConfig } from "vitepress";
 import Icons from "unplugin-icons/vite";
+import path from "path";
 import { mdCode, mdImage } from "../md";
+let alias = {
+  "@": path.resolve(__dirname, "../../src"),
+  "@src": path.resolve(__dirname, "../../src"),
+  "@docs": path.resolve(__dirname, ".."),
+  "@root": path.resolve(__dirname, "../.."),
+  "~vitepress": "vitepress/dist/client/theme-default",
+};
 export default defineConfig({
   title: "飞翔的鱼",
   lastUpdated: true,
@@ -13,6 +21,9 @@ export default defineConfig({
     },
   },
   vite: {
+    resolve: {
+      alias: alias,
+    },
     plugins: [
       Icons({
         autoInstall: true,
